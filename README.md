@@ -1,4 +1,5 @@
-# -
+# 증명사진을 위한 규격 판단 기술 개발
+
 2023 KWU 졸업작품
 # U-Net segmentation
 1.pfcn_small.npz (dataset)  
