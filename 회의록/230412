@@ -1,4 +1,6 @@
 Unet Image-segmentation
-화질개선과 training 시간 단축필요
-
+화질개선과 training 시간 단축필요  
+시간 단축이 우선적으로 해결해야 한다고 판단하여 모델 경량화 방법 알아봄.
+프로토타입 만들기 전 경량화된 model(MobileNet) 준비.
+실내 인물 중심인 training dataset 추가 준비 
 
