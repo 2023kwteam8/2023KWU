@@ -55,14 +55,20 @@ crop_x = 0 if crop_x < 0 else crop_x
 crop_y = crop_middle_y - (crop_height / 2)
 crop_y = 0 if crop_y < 0 else crop_y
 
+# 크롭 이미지의 시작 좌표 및 크기 출력
+print("크롭 이미지 시작 좌표:", crop_x, crop_y)
+print("크롭 이미지 가로, 세로 길이:", crop_width, crop_height)
+
 # face keypoint들의 x, y 좌표값만 빼내는 과정
 n = 0
 indices = [3 * n + i for n in range(len(face_keypoints_2d) // 3) for i in (0, 1)]
 
 facekp = [face_keypoints_2d[i] for i in indices]
+# print("facekp:", facekp[0], facekp[1])
 
 # 크롭 이미지에 대응하는 키포인트들의 좌표값 생성
-cropkp = [x - crop_x if x % 2 == 0 else x - crop_y for x in facekp]
+cropkp = [x - crop_x if i % 2 == 0 else x - crop_y for i, x in enumerate(facekp)]
+# print("cropkp:", cropkp[0], cropkp[1])
 
 # json 폴더에 저장
 # JSON 파일로 저장할 경로와 파일명 지정
@@ -72,16 +78,11 @@ file_path = "json/cropkp.json"
 with open(file_path, "w") as file:
     json.dump(cropkp, file)
 
-# 크롭 이미지의 시작 좌표 및 크기 출력
-# print("크롭 이미지 시작 좌표:", crop_x, crop_y)
-# print("크롭 이미지 가로, 세로 길이:", crop_width, crop_height)
-
 # 이미지 크롭 및 2_resize 폴더에 저장
 cropped_image = image.crop((crop_x, crop_y, crop_x + crop_width, crop_y + crop_height))
 cropped_image.save("image/2_resize/crop.jpg")
 
 # 현재 이미지 크기 변경에 대한 코드가 불필요함
-
 # 이미지 크기 변경
 # new_size = (600, 800)
 # resized_image = cropped_image.resize(new_size)
