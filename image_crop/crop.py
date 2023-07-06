@@ -51,7 +51,9 @@ crop_middle_y = (left_y + right_y) / 2
 
 # 크롭 이미지의 왼쪽 위 좌표 구하기
 crop_x = crop_middle_x - (crop_width / 2)
+crop_x = 0 if crop_x < 0 else crop_x
 crop_y = crop_middle_y - (crop_height / 2)
+crop_y = 0 if crop_y < 0 else crop_y
 
 # 크롭 이미지의 시작 좌표 및 크기 출력
 print("크롭 이미지 시작 좌표:", crop_x, crop_y)
