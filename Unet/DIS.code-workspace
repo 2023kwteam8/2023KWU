@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "DIS5K",
+			"path": "../../../Downloads/DIS5K/DIS5K"
+		},
+		{
+			"name": "DIS",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
